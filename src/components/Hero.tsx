@@ -60,7 +60,7 @@ const Hero = () => {
                   <div className="w-full h-64 bg-gray-50 rounded flex items-center justify-center overflow-hidden">
                     {/* Mobile image - original that worked well on mobile */}
                     <img 
-                      src="public/hero_mobile.png" 
+                      src="/hero_mobile.png" 
                       alt="Digisaga - Hjelper norske bedrifter vokse med AI-løsninger og digital utvikling" 
                       className="w-full h-full object-contain block md:hidden" 
                       loading="lazy" 
@@ -69,7 +69,7 @@ const Hero = () => {
                     />
                     {/* Desktop image - new wider image for better desktop fit */}
                     <img 
-                      src="public/hero_desktop.png" 
+                      src="/hero_desktop.png" 
                       alt="Digisaga - Hjelper norske bedrifter vokse med AI-løsninger og digital utvikling" 
                       className="w-full h-full object-contain hidden md:block" 
                       loading="lazy" 
