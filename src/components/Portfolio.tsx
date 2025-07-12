@@ -42,7 +42,7 @@ const portfolioItems = [
   {
     title: "skanditek.no",
     category: "Nettsider",
-    image: getPortfolioImageUrl("skanditek.jpg"),
+    image: "/skanditek.jpg",
     description: "Fullstack e-commerce løsning med produktkatalog og sikker betalingsprosessering.",
     isComplete: false,
     altText: "Skanditek e-commerce nettbutikk - Profesjonell netthandel løsning"
