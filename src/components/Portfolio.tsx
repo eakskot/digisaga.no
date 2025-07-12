@@ -16,7 +16,7 @@ const portfolioItems = [
   {
     title: "AI Backend Automation",
     category: "AI & Automation",
-    image: getPortfolioImageUrl("document_make.jpg"),
+    image: "/document_make.jpg",
     description: "Intelligent backend-automatisering som kobler sammen ulike komponenter med AI. Brukt blant annet i AI-quizen for å effektivisere manuelle oppgaver med høy nøyaktighet.",
     isComplete: true,
     isClickable: true,
@@ -26,7 +26,7 @@ const portfolioItems = [
   {
     title: "Smart Dokumentanalyse",
     category: "Web App",
-    image: getPortfolioImageUrl("docsum.jpg"),
+    image: "/docsum.jpg",
     description: "AI-drevet dokumentanalyse som automatisk ekstraherer nøkkelinformasjon.",
     isComplete: false,
     altText: "Skjermbilde av AI dokumentanalyse webapplikasjon - Smart automatisering for bedrifter"
@@ -34,7 +34,7 @@ const portfolioItems = [
   {
     title: "Eiendomsmegler Portal",
     category: "Web App",
-    image: getPortfolioImageUrl("emflow.jpg"),
+    image: "/emflow.jpg",
     description: "Avansert webapplikasjon med kundehåndtering og datavisualisering.",
     isComplete: false,
     altText: "Eiendomsmegler portal webapplikasjon med kundehåndtering og datavisualisering"
@@ -50,7 +50,7 @@ const portfolioItems = [
   {
     title: "Schwabe Knives",
     category: "Nettsider",
-    image: getPortfolioImageUrl("schwabe-knives.jpg"),
+    image: "/schwabe-knives.jpg",
     description: "Responsiv nettside med moderne design og optimalisert brukeropplevelse.",
     isComplete: true,
     link: "https://www.norskekniver.no",
@@ -59,7 +59,7 @@ const portfolioItems = [
   {
     title: "Istanbul Frisør",
     category: "Nettsider",
-    image: getPortfolioImageUrl("barber.jpg"),
+    image: "/barber.jpg",
     description: "Moderne nettside med online bestillingssystem og responsiv design.",
     isComplete: false,
     altText: "Istanbul Frisør nettside med online bestillingssystem - Moderne frisørnettside"
