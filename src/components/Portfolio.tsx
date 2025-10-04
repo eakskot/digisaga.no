@@ -58,16 +58,6 @@ const portfolioItems = [
   },
 
   {
-    title: "Pilsulator",
-    category: "Nettsider",
-    image: "/schwabe-knives.jpg",
-    description: "Pilsulator.no lar deg konvertere alkohol til øl og beregne promille enkelt og presist",
-    isComplete: true,
-    link: "https://pilsulator.no",
-    altText: "Schwabe Knives responsiv nettside - Moderne design for norsk knivprodusent"
-  },
-
-  {
     title: "Istanbul Frisør",
     category: "Nettsider",
     image: "/barber.jpg",
