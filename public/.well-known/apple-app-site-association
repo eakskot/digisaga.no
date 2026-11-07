@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["D6Z2L8HVV8.com.emilskotner.mindscape"],
+        "components": [{ "/": "/mindscape/neighbor*", "comment": "Neighbor invites" }]
+      },
+      {
+        "appID": "D6Z2L8HVV8.com.emilskotner.mindscape",
+        "paths": ["/mindscape/neighbor", "/mindscape/neighbor/*"]
+      }
+    ]
+  }
+}

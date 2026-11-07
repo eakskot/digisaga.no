@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Be my neighbor in Mindscape</title>
+  <meta name="description" content="A friend invited you to be their neighbor in Mindscape: Focus Village." />
+  <meta property="og:title" content="Be my neighbor in Mindscape" />
+  <meta property="og:description" content="Move into each other's villages in Mindscape: Focus Village." />
+  <meta property="og:image" content="https://digisaga.no/mindscape/icon.png" />
+  <meta name="apple-itunes-app" content="app-id=6824303137" />
+  <link rel="icon" href="/mindscape/icon.png" />
+  <link rel="stylesheet" href="/mindscape/style.css" />
+  <style>
+    .actions { display: flex; flex-direction: column; gap: 12px; margin: 28px 0; }
+    .button {
+      display: block; text-align: center; text-decoration: none; font-weight: 700;
+      padding: 15px 20px; border-radius: 999px; border: 0; font-size: 17px; cursor: pointer;
+    }
+    .primary { background: #2a7d46; color: #ffffff; }
+    .secondary { background: var(--card); color: var(--text); }
+    .code { font: 600 20px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 1px; word-break: break-all; }
+    .muted { color: var(--muted); font-size: 15px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="/mindscape/icon.png" alt="Mindscape: Focus Village app icon" />
+    <h1 id="title">Be my neighbor in Mindscape</h1>
+  </header>
+
+  <p>Mindscape locks the apps that steal your time. Skip them, finish a focus session, and you earn coins to build a little village. Add a friend, and they move in as your neighbor.</p>
+
+  <div class="actions">
+    <a class="button primary" id="open" href="mindscape://neighbor">Open in Mindscape</a>
+    <a class="button secondary" href="https://apps.apple.com/app/id6824303137">Get Mindscape on the App Store</a>
+  </div>
+
+  <div class="card" id="codeCard" hidden>
+    <p class="muted">Don't have the app yet? Install it, then open this link again. Or add the code by hand: Profile &gt; Add a friend's neighbor.</p>
+    <p class="code" id="code"></p>
+    <p><button class="button secondary" id="copy" type="button">Copy code</button></p>
+  </div>
+
+  <footer>Mindscape: Focus Village · <a href="/mindscape">Help &amp; contact</a> · <a href="/mindscape/privacy">Privacy</a></footer>
+</main>
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    var code = params.get("code") || "";
+    var name = (params.get("name") || "").slice(0, 18);
+    if (name) document.getElementById("title").textContent = name + " wants you as a neighbor";
+    if (code) {
+      var link = "mindscape://neighbor?code=" + encodeURIComponent(code) + (name ? "&name=" + encodeURIComponent(name) : "");
+      document.getElementById("open").setAttribute("href", link);
+      document.getElementById("code").textContent = code;
+      document.getElementById("codeCard").hidden = false;
+      document.getElementById("copy").addEventListener("click", function () {
+        var btn = this;
+        if (navigator.clipboard) navigator.clipboard.writeText(code).then(function () { btn.textContent = "Copied"; });
+      });
+    }
+  })();
+</script>
+</body>
+</html>
