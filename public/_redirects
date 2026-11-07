@@ -1,1 +1,2 @@
-/*    /index.html   200
+# Static site: no SPA fallback. Missing pages get /404.html automatically.
+/personvern  /mindscape/privacy  301

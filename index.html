@@ -1,73 +1,162 @@
-
 <!doctype html>
-<html lang="no">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="public/favicon.png" type="image/png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Primary Meta Tags -->
-    <title>Digisaga - AI-løsninger og nettsideutvikling for norske bedrifter</title>
-    <meta name="title" content="Digisaga - AI-løsninger og nettsideutvikling for norske bedrifter" />
-    <meta name="description" content="Vi hjelper norske bedrifter med AI-automasjon, profesjonelle nettsider, e-commerce og SEO-optimalisering. Få 25% rabatt på alle tjenester. Gratis konsultasjon." />
-    <meta name="keywords" content="AI-automasjon, nettsideutvikling, e-commerce, SEO, digitale løsninger, Norge, bedrifter, automatisering" />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="Norwegian" />
-    <meta name="author" content="Digisaga" />
-    <link rel="canonical" href="https://digisaga.no/" />
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digisaga — Digital creators from Trondheim</title>
+  <meta name="description" content="Digisaga is a small studio in Trondheim making apps and other digital projects. Our first app is Mindscape: Focus Village." />
+  <link rel="canonical" href="https://digisaga.no/" />
+  <meta name="theme-color" content="#f4f3ef" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0e0f0e" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://digisaga.no/" />
+  <meta property="og:title" content="Digisaga — Digital creators from Trondheim" />
+  <meta property="og:description" content="A small studio in Trondheim making apps and other digital projects." />
+  <meta property="og:image" content="https://digisaga.no/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/site.css" />
+  <script>document.documentElement.classList.add("js")</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Digisaga","url":"https://digisaga.no","email":"kontakt@digisaga.no","sameAs":["https://www.instagram.com/digisaga_norge/"],"address":{"@type":"PostalAddress","addressLocality":"Trondheim","addressCountry":"NO"}}
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="/" aria-label="Digisaga home"><span class="mark" aria-hidden="true"></span>Digisaga</a>
+      <nav aria-label="Main">
+        <a href="#work">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://digisaga.no/" />
-    <meta property="og:title" content="Digisaga - AI-løsninger og nettsideutvikling for norske bedrifter" />
-    <meta property="og:description" content="Vi hjelper norske bedrifter med AI-automasjon, profesjonelle nettsider, e-commerce og SEO-optimalisering. Få 25% rabatt på alle tjenester." />
-    <meta property="og:image" content="public/favicon.png" />
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://digisaga.no/" />
-    <meta property="twitter:title" content="Digisaga - AI-løsninger og nettsideutvikling for norske bedrifter" />
-    <meta property="twitter:description" content="Vi hjelper norske bedrifter med AI-automasjon, profesjonelle nettsider, e-commerce og SEO-optimalisering." />
-    <meta property="twitter:image" content="public/favicon.png" />
-    
-    <!-- Performance optimizations -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
-    <link rel="dns-prefetch" href="https://hook.eu2.make.com">
-    <link rel="dns-prefetch" href="https://cdn.jotfor.ms">
-    <link rel="dns-prefetch" href="https://chatbotdigisaga.netlify.app">
-    
-    <!-- Preload critical font -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Digisaga",
-      "url": "https://digisaga.no",
-      "logo": "public/logo.png",
-      "description": "Vi hjelper norske bedrifter med AI-automasjon, nettsideutvikling, e-commerce og SEO-optimalisering",
-      "areaServed": "NO",
-      "serviceType": [
-        "AI-automasjon",
-        "Nettsideutvikling", 
-        "E-commerce",
-        "SEO-optimalisering",
-        "Digital markedsføring"
-      ]
-    }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    
-    <!-- Chatbot Script -->
-    <script src="https://chatbotdigisaga.netlify.app/embed/chatbot.js" defer></script>
-  </body>
+  <main>
+    <section class="hero wrap">
+      <p class="eyebrow reveal"><span class="dot" aria-hidden="true"></span>Apps &amp; digital projects</p>
+      <h1 class="reveal">Digital creators</h1>
+      <p class="hero-sub reveal">from Trondheim</p>
+      <p class="lede reveal">Digisaga is a small studio making apps and other digital projects. We build most things ourselves, and friends join in when a project needs more hands.</p>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="#work">See projects <span aria-hidden="true">↓</span></a>
+        <a class="btn btn-ghost" href="mailto:kontakt@digisaga.no">kontakt@digisaga.no</a>
+      </div>
+    </section>
+
+    <section id="work" class="section wrap">
+      <div class="section-head reveal">
+        <h2>Projects</h2>
+        <p>One out, more on the way.</p>
+      </div>
+
+      <article class="project reveal">
+        <div class="project-visual" aria-hidden="true">
+          <div class="phone">
+            <img src="/mindscape/icon.png" alt="" width="132" height="132" />
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-meta"><span>01</span><span>iOS app</span><span>2026</span></div>
+          <h3>Mindscape: Focus Village</h3>
+          <p>A small pixel village that grows when you spend less time on your phone. Mindscape locks the apps you lose time in and gives you a few tickets a day to open them. Focus sessions earn coins, and the coins go towards decorating your village. Friends can move in as neighbors.</p>
+          <ul class="tags">
+            <li>iOS</li><li>React Native</li><li>Screen Time</li><li>Pixel art</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn btn-primary" href="https://apps.apple.com/app/id6824303137">App Store <span aria-hidden="true">↗</span></a>
+            <a class="link-arrow" href="/mindscape">Help &amp; support <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <div class="upcoming">
+        <article class="placeholder reveal">
+          <div class="project-meta"><span>02</span><span>In progress</span></div>
+          <h3>Coming soon</h3>
+          <p>We're working on it. More here when there's something to show.</p>
+          <div class="shimmer" aria-hidden="true"></div>
+        </article>
+        <article class="placeholder reveal">
+          <div class="project-meta"><span>03</span><span>Next up</span></div>
+          <h3>On the drawing board</h3>
+          <p>Still at the sketch stage.</p>
+          <div class="shimmer" aria-hidden="true"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-head reveal">
+        <h2>What we do</h2>
+      </div>
+      <div class="services">
+        <div class="service reveal">
+          <span class="num">A</span>
+          <h3>Apps</h3>
+          <p>iPhone apps, built with React Native and native Swift where it's needed.</p>
+        </div>
+        <div class="service reveal">
+          <span class="num">B</span>
+          <h3>Design</h3>
+          <p>Interfaces, flows and the small details, from the first sketch to the finished product.</p>
+        </div>
+        <div class="service reveal">
+          <span class="num">C</span>
+          <h3>Web</h3>
+          <p>Websites, landing pages and quick prototypes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section wrap about">
+      <h2 class="reveal">About</h2>
+      <div class="about-body">
+        <p class="big reveal">Digisaga is a small studio based in Trondheim. We make our own apps and digital projects, usually as a few friends working together.</p>
+        <p class="reveal">Mindscape is the first one out on the App Store. More are on the way.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section wrap contact">
+      <p class="eyebrow reveal">Contact</p>
+      <h2 class="contact-title reveal">Get in <em>touch.</em></h2>
+      <a class="contact-mail reveal" href="mailto:kontakt@digisaga.no">kontakt@digisaga.no <span aria-hidden="true">↗</span></a>
+      <ul class="contact-more reveal">
+        <li><a href="tel:+4791241836">+47 912 41 836</a></li>
+        <li><a href="https://www.instagram.com/digisaga_norge/" rel="noopener">Instagram</a></li>
+        <li>Trondheim, Norway</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year">2026</span> Digisaga · Trondheim, Norway</span>
+      <span class="footer-links"><a href="/mindscape">Mindscape</a><a href="/mindscape/privacy">Privacy</a><a href="mailto:kontakt@digisaga.no">Contact</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    (function () {
+      var items = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        items.forEach(function (el) { el.classList.add("in"); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "0px 0px -8% 0px" });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
 </html>
