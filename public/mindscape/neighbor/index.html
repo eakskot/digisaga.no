@@ -3,6 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script>
+    // Only reached when the app didn't take the link: iOS opens it directly
+    // for anyone who has the app. So on an iPhone in a real browser this page
+    // has nothing to add - straight on to the App Store, before anything is
+    // drawn. In-app browsers (Snapchat, Instagram...) never hand links to
+    // apps, so there the page stays and tries to open Mindscape itself.
+    var appStoreUrl = "https://apps.apple.com/app/id6824303137";
+    var isIos = /iPhone|iPad|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+    var inAppBrowser = isIos && (!/Safari\//.test(navigator.userAgent) || /Snapchat|Instagram|FBAN|FBAV|TikTok|musical_ly|LinkedInApp/.test(navigator.userAgent));
+    if (isIos && !inAppBrowser && /[?&]code=/.test(location.search)) location.replace(appStoreUrl);
+  </script>
   <title>Be my neighbor in Mindscape</title>
   <meta name="description" content="A friend invited you to be their neighbor in Mindscape: Focus Village." />
   <meta property="og:title" content="Be my neighbor in Mindscape" />
@@ -54,6 +65,7 @@
     if (code) {
       var link = "mindscape://neighbor?code=" + encodeURIComponent(code) + (name ? "&name=" + encodeURIComponent(name) : "");
       document.getElementById("open").setAttribute("href", link);
+      if (inAppBrowser) location.href = link;
       document.getElementById("code").textContent = code;
       document.getElementById("codeCard").hidden = false;
       document.getElementById("copy").addEventListener("click", function () {
