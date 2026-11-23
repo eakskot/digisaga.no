@@ -51,6 +51,9 @@
     .secondary { background: var(--card); color: var(--text); }
     .code { font: 600 20px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 1px; word-break: break-all; }
     .muted { color: var(--muted); font-size: 15px; }
+    .steps { margin: 24px 0; }
+    .step-title { font-weight: 700; font-size: 19px; margin: 0 0 8px; }
+    .steps ol { margin: 0 0 12px; padding-left: 22px; font-size: 18px; line-height: 1.7; }
   </style>
 </head>
 <body>
@@ -62,12 +65,19 @@
 
   <p>Mindscape locks the apps that steal your time. Skip them, finish a focus session, and you earn coins to build a little village. Add a friend, and they move in as your neighbor.</p>
 
-  <div class="actions">
+  <div class="card steps" id="inAppSteps" hidden>
+    <p class="step-title">To open Mindscape:</p>
+    <ol>
+      <li>Tap <b>⋯</b> at the top of the screen</li>
+      <li>Choose <b>Open in browser</b></li>
+    </ol>
+    <p class="muted">Mindscape opens straight on your friend's invite. No app yet? You'll land in the App Store.</p>
+  </div>
+
+  <div class="actions" id="actions">
     <a class="button primary" id="open" href="https://apps.apple.com/app/id6824303137">Open in Mindscape</a>
     <a class="button secondary" href="https://apps.apple.com/app/id6824303137">Get Mindscape on the App Store</a>
   </div>
-
-  <p class="muted" id="inAppHint" hidden>Nothing happens? Tap the ⋯ or share button at the top and choose <b>Open in Safari</b> (or <b>Open in browser</b>).</p>
 
   <div class="card" id="codeCard" hidden>
     <p class="muted">Don't have the app yet? Install it, then open this link again. Or add the code by hand: Profile &gt; Add a friend's neighbor.</p>
@@ -88,7 +98,15 @@
       // In an in-app browser: escape to Safari. In Safari: the cross-domain
       // universal link (app if installed, App Store if not). See the top.
       open.setAttribute("href", inAppBrowser ? safariEscape : (onMirror ? appLink : appStoreUrl));
-      if (inAppBrowser) document.getElementById("inAppHint").hidden = false;
+      // Snapchat blocks x-safari-https:// too, but its own "Open in browser"
+      // hands the digisaga.no link to iOS, which opens the app (tested
+      // 2026-11-23). So in an in-app browser that's the main instruction, and
+      // the button stays below as a try for browsers that do allow it.
+      if (inAppBrowser) {
+        document.getElementById("inAppSteps").hidden = false;
+        open.className = "button secondary";
+        open.textContent = "Try opening Mindscape directly";
+      }
       document.getElementById("code").textContent = code;
       document.getElementById("codeCard").hidden = false;
       document.getElementById("copy").addEventListener("click", function () {
