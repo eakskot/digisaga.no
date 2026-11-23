@@ -14,24 +14,24 @@
     <img src="/mindscape/icon.png" alt="Mindscape: Focus Village app icon" />
     <h1>Mindscape: Focus Village<br />Privacy Policy</h1>
   </header>
-  <p>Last updated: 9 November 2026</p>
+  <p>Last updated: 23 November 2026</p>
 
   <div class="card">
-    <p><strong>The short version:</strong> Mindscape has no accounts and no ads. Almost everything the app knows stays on your iPhone. The exception is usage statistics (like how many tickets and focus sessions are used), which are tied to a random id instead of your name and which you can switch off in Settings. We never sell your data.</p>
+    <p><strong>The short version:</strong> Mindscape has no accounts and no ads. Almost everything the app knows stays on your iPhone. Two things leave it: usage statistics (like how many tickets and focus sessions are used), which are tied to a random id instead of your name and which you can switch off in Settings; and, only if you use Friends, a copy of your village with your name, character and streak, so friends who have your code can visit it. You can delete that copy any time in Settings. Nothing from Screen Time ever leaves your phone, and we never sell your data.</p>
   </div>
 
   <h2>Who we are</h2>
   <p>Mindscape: Focus Village is made by Digisaga v/ Emil Skotner (Norway). Questions about privacy: <a href="mailto:kontakt@digisaga.no">kontakt@digisaga.no</a>.</p>
 
   <h2>What the app stores, and where</h2>
-  <p>Mindscape saves the following <strong>only on your device</strong> (in the app's own storage):</p>
+  <p>Mindscape saves the following <strong>on your device</strong> (in the app's own storage):</p>
   <ul>
     <li>Your answers from the welcome screens (for example the name you typed and your estimate of daily phone time), and the character you picked.</li>
     <li>Your village: coins, items you bought and where you placed them, neighbors, your streak, tickets and focus sessions.</li>
-    <li>A random id created on your phone, used only inside your neighbor code (see below).</li>
+    <li>Random keys created on your phone for Friends: a share key that goes into your neighbor code, and a secret that proves the shared village is yours (see "Friends and shared villages").</li>
     <li>Your settings, such as light or dark mode.</li>
   </ul>
-  <p>Your name, your village and your neighbors are never sent to us or to anyone else. The only things that leave your phone are the usage statistics described below, including the answers you picked from the lists in the welcome screens.</p>
+  <p>Only two things leave your phone: the usage statistics described below (including the answers you picked from the lists in the welcome screens), and, if you use Friends, your shared village. Your list of neighbors, your coins, your tickets and focus history, and anything from Screen Time are never sent anywhere.</p>
 
   <h2>Screen Time</h2>
   <p>To lock the apps you choose, Mindscape uses Apple's Screen Time (Family Controls) framework, and only with your permission. Apple gives the app <strong>anonymous tokens</strong> for the apps you pick, not their names, and never what you do in them. Mindscape does not read your usage history. The tokens stay on your device and are used for one thing only: locking and unlocking those apps.</p>
@@ -44,7 +44,20 @@
   <p>If you allow them, Mindscape shows local notifications about your tickets and focus sessions. They are created on your phone; no push service is involved.</p>
 
   <h2>Neighbor codes</h2>
-  <p>Your neighbor code (and its QR code) contains your random id, your character and, in the QR code, the name you typed. It is shared only when you show or send it to someone yourself. A friend who adds it stores a copy on their own phone.</p>
+  <p>Your neighbor code (and its QR code) contains your share key and your character, and the QR code also contains the name you typed. It is shared only when you show or send it to someone yourself. A friend who adds it stores a copy on their own phone, and your character moves into their village as a neighbor.</p>
+  <p>Because the code contains your share key, <strong>anyone who has your code can visit your shared village</strong> (see below). Share it with people you'd invite in. If a code ends up with the wrong person, delete your shared village in Settings: you get a new code, and the old one stops working.</p>
+
+  <h2>Friends and shared villages</h2>
+  <p>Friends is optional. Nothing is shared until you open the Friends screen or add a friend. From then on, the app keeps a copy of your village on our server so friends with your code can visit it:</p>
+  <ul>
+    <li>the items in your village and where they stand, the trees and rocks you have removed, and the banner on your boat;</li>
+    <li>the name you typed, the character you picked and your streak;</li>
+    <li>your share key, a fingerprint (a one-way hash) of your phone's secret, and when the village was first shared and last updated.</li>
+  </ul>
+  <p>The copy is updated when your village changes, at most when you open or leave the app. It never contains your coins, your tickets or focus sessions, your neighbor list, or anything from Screen Time: not which apps you lock, and not how you use your phone. There are no accounts, no email address and no phone number. When you visit a friend, the app fetches their village using the share key in their code; it does not tell them or us who visited.</p>
+  <p>The server is run for us by <a href="https://supabase.com/privacy">Supabase</a>, in the EU (Frankfurt). Supabase keeps short-lived technical logs of requests, including the IP address, to run and protect the service; we do not use them to find out who you are. We process shared villages to provide the Friends feature you chose to use (GDPR Article 6(1)(b)).</p>
+  <p><strong>Reports.</strong> If you report a friend's village, we receive that village's share key, the name shown on it and the time. The report does not say who sent it. We use reports only to review the village, and we can remove a village or a name that breaks the rules.</p>
+  <p><strong>Stop sharing.</strong> Settings &gt; Privacy &gt; "Delete my shared village" deletes the copy from our server at once. Codes you gave out then no longer show your village, and you get a new code. If you open Friends again later, a new copy is shared under the new code.</p>
 
   <h2>Feedback by email</h2>
   <p>If you use "Send feedback", your Mail app opens a message to us with the app and iOS version filled in. If you send it, we receive what you wrote, your email address and those version numbers. We use them only to reply and to fix problems, and we delete them if you ask.</p>
@@ -56,20 +69,20 @@
   <p>We use this only to improve Mindscape, based on our legitimate interest in making the app work better (GDPR Article 6(1)(f)). You can switch it off any time in Settings &gt; Privacy in the app; it then sends nothing more and drops anything not yet sent.</p>
 
   <h2>Tracking and third parties</h2>
-  <p>Mindscape contains no advertising or tracking SDKs and does not track you across apps or websites. Apart from PostHog (above), we do not share data with third parties. PostHog processes the usage events only on our behalf, under a data processing agreement that requires it to protect them at least as well as this policy does.</p>
+  <p>Mindscape contains no advertising or tracking SDKs and does not track you across apps or websites. Apart from PostHog and Supabase (above), we do not share data with third parties. Both process data only on our behalf, under data processing agreements that require them to protect it at least as well as this policy does. Your shared village is visible only to people who have your neighbor code; it is not listed or searchable anywhere.</p>
   <p>Apple provides us with aggregated, anonymous statistics about the app, such as downloads and crashes, through App Store Connect. These cover only users who have chosen to share diagnostics and usage with app developers in iOS, are processed by Apple under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>, and cannot be used by us to identify you.</p>
 
   <h2>Your rights</h2>
-  <p>Apart from emails you choose to send us, the only data we hold is the usage statistics above. They are tied to a random id that is shown nowhere and is not connected to your name, so we cannot find your events from an email or a name. If you want to see, correct or delete an email you sent, write to <a href="mailto:kontakt@digisaga.no">kontakt@digisaga.no</a>. You can also complain to the Norwegian Data Protection Authority (<a href="https://www.datatilsynet.no">Datatilsynet</a>).</p>
+  <p>Apart from emails you choose to send us, the data we hold is the usage statistics and, if you use Friends, your shared village. You can see your shared village the way friends do, and delete it yourself in Settings. Usage statistics are tied to a random id that is shown nowhere and is not connected to your name, so we cannot find your events from an email or a name. For anything else, such as an email you sent or a shared village you can no longer delete from the app (send us your neighbor code), write to <a href="mailto:kontakt@digisaga.no">kontakt@digisaga.no</a>. You can also complain to the Norwegian Data Protection Authority (<a href="https://www.datatilsynet.no">Datatilsynet</a>).</p>
 
   <h2>Deleting your data</h2>
-  <p>Delete the app, and everything it stored is removed from your phone. Usage events are deleted automatically after about one year. The small profile kept with the random id (your latest list answers, streak, ticket choice and number of neighbors) stays for as long as Mindscape uses PostHog, or until we delete it. To stop new events, switch off usage statistics in Settings &gt; Privacy before you delete the app.</p>
+  <p>Delete the app, and everything it stored is removed from your phone. <strong>Deleting the app does not delete your shared village</strong>: delete it first in Settings &gt; Privacy &gt; "Delete my shared village", or write to us with your neighbor code. Reports are deleted once they have been dealt with. Usage events are deleted automatically after about one year. The small profile kept with the random id (your latest list answers, streak, ticket choice and number of neighbors) stays for as long as Mindscape uses PostHog, or until we delete it. To stop new events, switch off usage statistics in Settings &gt; Privacy before you delete the app.</p>
 
   <h2>Children</h2>
-  <p>Mindscape is not directed at children under 13 and does not knowingly collect personal data from anyone.</p>
+  <p>Mindscape is not directed at children under 13 and does not knowingly collect personal data from children under 13.</p>
 
   <h2>Changes</h2>
-  <p>If this policy changes, for example if we add accounts or friends, we will update this page and the date above before those features launch.</p>
+  <p>If this policy changes, for example if we add accounts or new ways to share, we will update this page and the date above before those changes reach the app.</p>
 
   <footer>Mindscape: Focus Village · <a href="/mindscape">Help &amp; contact</a></footer>
 </main>
