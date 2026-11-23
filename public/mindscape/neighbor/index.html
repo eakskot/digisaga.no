@@ -5,14 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script>
     // Only reached when the app didn't take the link: iOS opens it directly
-    // for anyone who has the app. So on an iPhone in a real browser this page
-    // has nothing to add - straight on to the App Store, before anything is
-    // drawn. In-app browsers (Snapchat, Instagram...) never hand links to
-    // apps, so there the page stays and tries to open Mindscape itself.
+    // for anyone who has the app - except inside in-app browsers (Snapchat,
+    // Instagram...), which never hand links to apps and block mindscape://.
+    //
+    // So, three cases:
+    // 1. Safari on digisaga.no: the app isn't installed (or iOS would have
+    //    opened it) - straight on to the App Store, before anything is drawn.
+    // 2. An in-app browser: escape to real Safari with x-safari-https:// (iOS
+    //    17+), onto the SAME page on another host, digisaga.netlify.app.
+    // 3. Safari on digisaga.netlify.app: one tap on "Open in Mindscape" goes
+    //    to the digisaga.no link. A user tap on a link to *another* domain is
+    //    what makes iOS treat it as a universal link: it opens the app if it's
+    //    installed, otherwise Safari loads digisaga.no -> case 1 -> App Store.
     var appStoreUrl = "https://apps.apple.com/app/id6824303137";
-    var isIos = /iPhone|iPad|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
-    var inAppBrowser = isIos && (!/Safari\//.test(navigator.userAgent) || /Snapchat|Instagram|FBAN|FBAV|TikTok|musical_ly|LinkedInApp/.test(navigator.userAgent));
-    if (isIos && !inAppBrowser && /[?&]code=/.test(location.search)) location.replace(appStoreUrl);
+    var mainHost = "digisaga.no";
+    var mirrorHost = "digisaga.netlify.app";
+    var ua = navigator.userAgent;
+    var isIos = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var inAppBrowser = isIos && (!/Safari\//.test(ua) || /Snapchat|Instagram|FBAN|FBAV|TikTok|musical_ly|LinkedInApp|Line\/|MicroMessenger|Twitter/.test(ua));
+    var hasCode = /[?&]code=/.test(location.search);
+    var onMirror = location.hostname === mirrorHost;
+    var path = "/mindscape/neighbor/" + location.search;
+    var appLink = "https://" + mainHost + path;
+    var safariEscape = "x-safari-https://" + mirrorHost + path;
+    if (isIos && hasCode && !inAppBrowser && !onMirror) location.replace(appStoreUrl);
+    if (inAppBrowser && hasCode) location.href = safariEscape;
   </script>
   <title>Be my neighbor in Mindscape</title>
   <meta name="description" content="A friend invited you to be their neighbor in Mindscape: Focus Village." />
@@ -20,6 +37,7 @@
   <meta property="og:description" content="Move into each other's villages in Mindscape: Focus Village." />
   <meta property="og:image" content="https://digisaga.no/mindscape/icon.png" />
   <meta name="apple-itunes-app" content="app-id=6824303137" />
+  <meta name="robots" content="noindex" />
   <link rel="icon" href="/mindscape/icon.png" />
   <link rel="stylesheet" href="/mindscape/style.css" />
   <style>
@@ -44,9 +62,11 @@
   <p>Mindscape locks the apps that steal your time. Skip them, finish a focus session, and you earn coins to build a little village. Add a friend, and they move in as your neighbor.</p>
 
   <div class="actions">
-    <a class="button primary" id="open" href="mindscape://neighbor">Open in Mindscape</a>
+    <a class="button primary" id="open" href="https://apps.apple.com/app/id6824303137">Open in Mindscape</a>
     <a class="button secondary" href="https://apps.apple.com/app/id6824303137">Get Mindscape on the App Store</a>
   </div>
+
+  <p class="muted" id="inAppHint" hidden>Nothing happens? Tap the ⋯ or share button at the top and choose <b>Open in Safari</b> (or <b>Open in browser</b>).</p>
 
   <div class="card" id="codeCard" hidden>
     <p class="muted">Don't have the app yet? Install it, then open this link again. Or add the code by hand: Profile &gt; Add a friend's neighbor.</p>
@@ -63,9 +83,11 @@
     var name = (params.get("name") || "").slice(0, 18);
     if (name) document.getElementById("title").textContent = name + " wants you as a neighbor";
     if (code) {
-      var link = "mindscape://neighbor?code=" + encodeURIComponent(code) + (name ? "&name=" + encodeURIComponent(name) : "");
-      document.getElementById("open").setAttribute("href", link);
-      if (inAppBrowser) location.href = link;
+      var open = document.getElementById("open");
+      // In an in-app browser: escape to Safari. In Safari: the cross-domain
+      // universal link (app if installed, App Store if not). See the top.
+      open.setAttribute("href", inAppBrowser ? safariEscape : (onMirror ? appLink : appStoreUrl));
+      if (inAppBrowser) document.getElementById("inAppHint").hidden = false;
       document.getElementById("code").textContent = code;
       document.getElementById("codeCard").hidden = false;
       document.getElementById("copy").addEventListener("click", function () {
