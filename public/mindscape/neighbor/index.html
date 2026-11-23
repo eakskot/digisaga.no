@@ -11,8 +11,10 @@
     // So, three cases:
     // 1. Safari on digisaga.no: the app isn't installed (or iOS would have
     //    opened it) - straight on to the App Store, before anything is drawn.
-    // 2. An in-app browser: escape to real Safari with x-safari-https:// (iOS
-    //    17+), onto the SAME page on another host, digisaga.netlify.app.
+    // 2. An in-app browser: the "Open in Mindscape" tap escapes to real Safari
+    //    with x-safari-https:// (iOS 17+), onto the SAME page on another host,
+    //    digisaga.netlify.app. Only on a tap: done automatically in the head,
+    //    Snapchat left the page blank (2026-11-23).
     // 3. Safari on digisaga.netlify.app: one tap on "Open in Mindscape" goes
     //    to the digisaga.no link. A user tap on a link to *another* domain is
     //    what makes iOS treat it as a universal link: it opens the app if it's
@@ -29,7 +31,6 @@
     var appLink = "https://" + mainHost + path;
     var safariEscape = "x-safari-https://" + mirrorHost + path;
     if (isIos && hasCode && !inAppBrowser && !onMirror) location.replace(appStoreUrl);
-    if (inAppBrowser && hasCode) location.href = safariEscape;
   </script>
   <title>Be my neighbor in Mindscape</title>
   <meta name="description" content="A friend invited you to be their neighbor in Mindscape: Focus Village." />
